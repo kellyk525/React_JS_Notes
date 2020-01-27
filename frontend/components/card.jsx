@@ -1,7 +1,6 @@
 import React from 'react';
-import MovieSearch from './components/movie_search';
 
-class Root extends React.Component {
+class Card extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -9,10 +8,10 @@ class Root extends React.Component {
     render() {
         return (
             <div>
-                <MovieSearch />
+                Hello Card
             </div>
         )
     }
 }
 
-export default Root;
+export default Card;
