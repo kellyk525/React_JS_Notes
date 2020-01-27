@@ -5,9 +5,12 @@ class MovieSearch extends React.Component {
         super(props);
 
         this.state = {
-            query: "",
+            query: "Kelly",
             movies: []
         }
+
+        this.fetchMovies = this.fetchMovies.bind(this);
+        this.handleQuery = this.handleQuery.bind(this);
     }
 
     componentDidMount() {
@@ -24,7 +27,7 @@ class MovieSearch extends React.Component {
     handleQuery() {
         return (e) => {
             e.preventDefault();
-            this.setState({ query: e.target.value }, console.log(this.state))
+            this.setState({ query: e.target.value }, () => this.fetchMovies())
         }
     }
 
@@ -38,7 +41,7 @@ class MovieSearch extends React.Component {
 
         return (
             <div>
-                <input type="text" onChange={ this.handleQuery() } />
+                <input type="text" onChange={ this.handleQuery() } value={ this.state.query } />
                 <ul>
                     {movies.map(movie => {
                         return (
